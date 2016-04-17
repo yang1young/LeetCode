@@ -1,6 +1,15 @@
 # LeetCode
 
+
 LeetCode problems solutions
+## 参考资料
+
+1. Java编程思想（第4版） [thinking in java][美] Bruce Eckel 著；陈昊鹏 译
+2. 算法竞赛入门经典（第2版）刘汝佳 著
+3. 算法 第4版 Algorithms Fourth Edition [Algorithms, Fourth Edition] [美] Robert Sedgewick，[美] Kevin Wayne 著；谢路云 译
+4. 数据结构与算法分析：Java语言描述（第2版） [Data structures and algorithm analysis in java second edition]
+   [美] 韦斯（Mark AIlen Weiss） 著；冯舜玺 译
+
 
 ## 解题原则
 
@@ -15,8 +24,9 @@ LeetCode problems solutions
 1. 大家共享一个测试类，多个测试用例
 2. 有问题无法解决方便他人复现
 
-测试例子1
+## 测试例子1
 
 1. TwoSum0继承TwoSum，因此这里不同人使用只用改SetUp()方法里面创建对象的名字
   自动提升为TwoSum，测试用例通用的
 2. 测试不通过的注释好，解决不了方便复现
+
