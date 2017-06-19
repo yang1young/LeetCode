@@ -5,11 +5,12 @@ package JZOF;
  */
 public class Sort {
     public static void main(String[] args) {
-        int[] array = new int[]{1, 2, 3, 5, 2, 3, 1, 9, 4};
-        QuikSort.quikSort(array);
-        for (int i : array) {
-            System.out.println(i);
-        }
+//        int[] array = new int[]{1, 2, 3, 5, 2, 3, 1, 9, 4};
+//        QuikSort.quikSort(array);
+//        for (int i : array) {
+//            System.out.println(i);
+//        }
+
     }
 }
 

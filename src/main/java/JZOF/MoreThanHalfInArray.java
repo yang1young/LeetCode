@@ -23,7 +23,7 @@ public class MoreThanHalfInArray {
     时间复杂度为O(n*n)，空间复杂度为O(1)。
      */
     private static int getPivot(int[] array, int start, int end) {
-        int i = start-1;
+        int i = start - 1;
         int key = array[end];
         for (int j = start; j < end; j++) {
             if (array[j] < key) {
@@ -34,19 +34,19 @@ public class MoreThanHalfInArray {
             }
         }
         int temp = array[end];
-        array[end] = array[i+1];
-        array[i+1] = temp;
-        return i+1;
+        array[end] = array[i + 1];
+        array[i + 1] = temp;
+        return i + 1;
     }
 
-    public static int MoreThanHalfNum_Solution(int [] array) {
+    public static int MoreThanHalfNum_Solution(int[] array) {
         int result = 0;
-        if(array!=null) {
+        if (array != null) {
             int index = 0;
             int beg = 0;
             int end = array.length;
-            int mid = end/2;
-            while(index != mid) {
+            int mid = end / 2;
+            while (index != mid) {
                 if (index > mid) {
                     end = mid;
                     index = getPivot(array, beg, end - 1);
@@ -56,12 +56,12 @@ public class MoreThanHalfInArray {
                 }
             }
             int count = 0;
-            for(int v:array) {
-                if (v == array[mid]){
-                    count ++;
+            for (int v : array) {
+                if (v == array[mid]) {
+                    count++;
                 }
             }
-            if(count>array.length/2){
+            if (count > array.length / 2) {
                 result = array[mid];
             }
         }
@@ -69,50 +69,77 @@ public class MoreThanHalfInArray {
     }
 
 
-/*
-由于该数字的出现次数比所有其他数字出现次数的和还要多，因此可以考虑在遍历数组时保存两个值：
-一个是数组中的一个数字，一个是次数，。当遍历到下一个数字时，如果下一个数字与之前保存的数字相同，
-则次数加1，如果不同，则次数减1，如果次数为0，则需要保存下一个数字，并把次数设定为1。
-由于我们要找的数字出现的次数比其他所有数字的出现次数之和还要大，则要找的数字肯定是组后一次把
-次数设为1时对应的数字。该方法的时间复杂度为O(n)，空间复杂度为O(1)。
- */
-    public static int MoreThanHalfNum_Solution_2(int [] array) {
+    /*
+    由于该数字的出现次数比所有其他数字出现次数的和还要多，因此可以考虑在遍历数组时保存两个值：
+    一个是数组中的一个数字，一个是次数，。当遍历到下一个数字时，如果下一个数字与之前保存的数字相同，
+    则次数加1，如果不同，则次数减1，如果次数为0，则需要保存下一个数字，并把次数设定为1。
+    由于我们要找的数字出现的次数比其他所有数字的出现次数之和还要大，则要找的数字肯定是组后一次把
+    次数设为1时对应的数字。该方法的时间复杂度为O(n)，空间复杂度为O(1)。
+     */
+    public static int MoreThanHalfNum_Solution_2(int[] array) {
         int temp = 0;
         int tempCount = 0;
-        for(int v:array){
-            if(tempCount==0){
+        for (int v : array) {
+            if (tempCount == 0) {
                 temp = v;
-                tempCount =1;
-            }
-            else{
-                if(temp==v){
+                tempCount = 1;
+            } else {
+                if (temp == v) {
                     tempCount++;
-                }
-                else{
+                } else {
                     tempCount--;
                 }
             }
 
         }
         int count = 0;
-        for(int v:array) {
-            if (v == temp){
-                count ++;
+        for (int v : array) {
+            if (v == temp) {
+                count++;
             }
         }
-        if(count>array.length/2){
+        if (count > array.length / 2) {
             return temp;
         }
         return 0;
     }
 
-
     public static void main(String[] args) {
-        int[] array = new int[]{2,2,2,2,2,1,3,4,5};
+        int[] array = new int[]{2, 2, 2, 2, 2, 1, 3, 4, 5};
         System.out.println(MoreThanHalfInArray.MoreThanHalfNum_Solution_2(array));
     }
 
 
 }
 
+/*
+change problem to is half of an Array, solution is:
+ */
+class IsHalfOfArray {
+    static int Find(int[] a, int N)  //a代表数组，N代表数组长度
+    {
+        int candidate = 0;
+        int nTimes, i;
+        for (i = nTimes = 0; i < N; i++) {
+            if (nTimes == 0) {
+                candidate = a[i];
+                nTimes = 1;
+            } else {
+                if (candidate == a[i])
+                    nTimes++;
+                else
+                    nTimes--;
+            }
+        }
 
+        int cTimes = 0;
+        int candidate2 = a[N - 1];
+        for (i = 0; i < N; i++) {
+            if (a[i] == candidate) {
+                cTimes++;
+            }
+        }
+
+        return cTimes == N / 2 ? candidate : candidate2;
+    }
+}
