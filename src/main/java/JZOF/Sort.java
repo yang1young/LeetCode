@@ -36,7 +36,7 @@ class QuikSort {
 */
 
     private static int getPivot(int[] array, int start, int end) {
-        int i = start-1;
+        int i = start - 1;
         int key = array[end];
         for (int j = start; j < end; j++) {
             if (array[j] < key) {
@@ -47,9 +47,9 @@ class QuikSort {
             }
         }
         int temp = array[end];
-        array[end] = array[i+1];
-        array[i+1] = temp;
-        return i+1;
+        array[end] = array[i + 1];
+        array[i + 1] = temp;
+        return i + 1;
     }
 
     private static void qsort(int[] array, int start, int end) {
