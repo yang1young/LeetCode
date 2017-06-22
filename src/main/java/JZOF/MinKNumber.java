@@ -18,6 +18,30 @@ public class MinKNumber {
     public ArrayList<Integer> GetLeastNumbers_Solution(int[] input, int k) {
         ArrayList<Integer> result = new ArrayList<Integer>();
 
+        if(k < 0 || k > array.length){
+            return;
+        }
+        int[] temp = new int[k];
+
+        for(int i = 0; i < k; i++){
+            temp[i] = array[i];
+        }
+        for(int i = k; i < array.length; i++){
+            int min = Integer.MAX_VALUE;
+            int minIndex = 0;
+            for(int j = 0; j < temp.length; j++){
+                if(temp[j] < min){
+                    min = temp[j];
+                    minIndex = j;
+                }
+            }
+            if(array[i] > min){
+                temp[minIndex] = array[i];
+            }
+        }
+        for(int i : temp){
+            System.out.print(i + " ");
+        }
         return result;
     }
 }
