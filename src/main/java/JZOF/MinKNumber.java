@@ -12,35 +12,71 @@ import java.util.ArrayList;
  */
 public class MinKNumber {
     public static void main(String[] args) {
+        int[] numbers = new int[]{1, 4, 2, 8, 15, 7, 9, 10};
+        ArrayList<Integer> result = new MinKNumber().GetLeastNumbers_Solution(numbers, 5);
+        for (int i : result) {
+            System.out.println(i);
+        }
+    }
 
+    /*
+    using quiksort partition function
+     */
+    private int partition(int[] input, int start, int end) {
+        int pivot = input[end];
+        int i = start - 1;
+        for (int j = i + 1; j < end; j++) {
+            if (input[j] < pivot) {
+                i++;
+                int temp = input[j];
+                input[j] = input[i];
+                input[i] = temp;
+            }
+        }
+        int temp = input[end];
+        input[end] = input[i + 1];
+        input[i + 1] = temp;
+        return i + 1;
     }
 
     public ArrayList<Integer> GetLeastNumbers_Solution(int[] input, int k) {
         ArrayList<Integer> result = new ArrayList<Integer>();
-
-        if(k < 0 || k > array.length){
-            return;
-        }
-        int[] temp = new int[k];
-
-        for(int i = 0; i < k; i++){
-            temp[i] = array[i];
-        }
-        for(int i = k; i < array.length; i++){
-            int min = Integer.MAX_VALUE;
-            int minIndex = 0;
-            for(int j = 0; j < temp.length; j++){
-                if(temp[j] < min){
-                    min = temp[j];
-                    minIndex = j;
+        if (input != null && k != 0 && k <= input.length) {
+            int pivot = partition(input, 0, input.length - 1);
+            while (pivot != k - 1) {
+                if (pivot > k - 1) {
+                    pivot = partition(input, 0, pivot - 1);
+                } else if (pivot < k - 1) {
+                    pivot = partition(input, pivot + 1, input.length - 1);
                 }
             }
-            if(array[i] > min){
-                temp[minIndex] = array[i];
+            int index = 0;
+            while (index < k) {
+                result.add(input[index]);
+                index++;
             }
         }
-        for(int i : temp){
-            System.out.print(i + " ");
+        return result;
+    }
+
+
+}
+
+
+class MinKHeap{
+
+    public static void main(String[] args) {
+        int[] numbers = new int[]{1, 4, 2, 8, 15, 7, 9, 10};
+        ArrayList<Integer> result = new MinKNumber().GetLeastNumbers_Solution(numbers, 5);
+        for (int i : result) {
+            System.out.println(i);
+        }
+    }
+
+    public ArrayList<Integer> GetLeastNumbers_Solution(int[] input, int k) {
+        ArrayList<Integer> result = new ArrayList<Integer>();
+        if (input != null && k != 0 && k <= input.length) {
+
         }
         return result;
     }
