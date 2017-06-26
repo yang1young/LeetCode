@@ -1,9 +1,9 @@
-package SQL;
+package leetcode.SQL;
 
 /**
  * Created by yang on 17-6-25.
  */
-public class TableCombine {
+public class TableCombine175 {
 
     /*Table: Person
 +-------------+---------+
@@ -26,11 +26,11 @@ Table: Address
 +-------------+---------+
 AddressId is the primary key column for this table.
 
-Write a SQL query for a report that provides the following information for each person
+Write a leetcode.SQL query for a report that provides the following information for each person
 in the Person table, regardless if there is an address for each of those people:
 FirstName, LastName, City, State
 */
     public static void tableCombine(){
-        String sql = "";
+        String sql = "select p.FirstName,p.LastName,a.City,a.State from Person as p left join Address as a on p.PersonId==a.PersonId";
     }
 }
