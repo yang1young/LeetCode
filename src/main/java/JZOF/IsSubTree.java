@@ -34,4 +34,22 @@ public class IsSubTree {
         return HasSubtree(root1.left, root2.left) && HasSubtree(root1.right, root2.right);
 
     }
+
+//    public boolean isSubTree(TreeNode root1,TreeNode root2){
+//
+//        if(root2==NULL)
+//            return true;
+//
+//        if(root1==NULL)
+//            return false;
+//
+//        if(root1->data==root2->data)
+//
+//            returnCheckIfSubTree2(root1->LC,root2->LC) &&CheckIfSubTree2(root1->RC,root2->RC);
+//
+//        else
+//
+//            returnCheckIfSubTree2(root1->LC,root2) || CheckIfSubTree2(root1->RC,root2);
+//    }
+
 }

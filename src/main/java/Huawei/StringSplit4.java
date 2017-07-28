@@ -28,7 +28,7 @@ import java.util.Scanner;
  * 12345678
  * 90000000
  */
-public class StringSplit {
+public class StringSplit4 {
 
     public static void printArray(String s) {
         char[] array = s.toCharArray();

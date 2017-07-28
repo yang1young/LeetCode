@@ -33,7 +33,7 @@ import java.util.Scanner;
  返回多行，处理后的结果
  */
 
-public class SortAndRemoveDuplicate {
+public class SortAndRemoveDuplicate3 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         while (sc.hasNext()) {
